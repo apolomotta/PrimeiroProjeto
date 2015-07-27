@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3c.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+  <h:body>
+  <ui:composition template="/WEB-INF/comum/template.xhtml">
+     <ui:define name="corpo">
+  <h:form>
+  <h3>Cadastro MiniLivro </h3>
+  Titulo:  <h:inputText value="#{miniLivroBean.livro.titulo}" label="titulo"/> <br/>
+  Autor:<h:selectOneMenu value="#{miniLivroBean.autor}">
+  <f:selectItem itemLabel="-- Selecione --"
+  noSelectionOption="true"/>
+  <f:selectItems value="#{autorBean.autores}" var="autor"
+  itemValue="#{autor}" itemLabel="#{autor.nome}"/>
+  </h:selectOneMenu><br/>
+  Editora:<h:selectOneMenu value="#{miniLivroBean.livro.editora}">
+  <f:selectItem itemLabel="-- Selecione --"
+  noSelectionOption="true"/>
+  <f:selectItems value="#{editoraBean.editoras}" var="editora"
+  itemValue="#{editora}" itemLabel="#{editora.nome}"/>
+  </h:selectOneMenu><br/>
+  Descrição: <h:inputTextarea value="#{miniLivroBean.livro.descricao}" label="Descrição"/> <br/>
+  Numero Paginas: <h:inputText value="#{miniLivroBean.livro.numeroPaginas}" label="NumeroPaginas"/> <br/>
+  Valor: <h:inputText value="#{miniLivroBean.livro.valor}" label="Valor"/> <br/>
+  Isbn: <h:inputText value="#{miniLivroBean.livro.isbn}" label="Isbn"/> <br/>
+  
+  <h:inputHidden value="#{miniLivroBean.livro.id}"/>
+  <h:commandButton value="salvar" action="#{miniLivroBean.salvar()}"/>
+ 
+   </h:form>
+   </ui:define>
+   </ui:composition>
+  </h:body>
+  </html>

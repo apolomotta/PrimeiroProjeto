@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3c.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+  <h:body>
+  <ui:composition template="/WEB-INF/comum/template.xhtml">
+     <ui:define name="corpo">
+  <h:form>
+  <h3>Cadastro Livro Digital </h3>
+  <h:messages />
+  Titulo:  <h:inputText value="#{livroDigitalBean.livro.titulo}" label="titulo" id="titulo"/> <br/>
+  Autor:<h:selectOneMenu value="#{livroDigitalBean.autor}">
+  <f:selectItem itemLabel="-- Selecione --"
+  noSelectionOption="true"/>
+  <f:selectItems value="#{autorBean.autores}" var="autor"
+  itemValue="#{autor}" itemLabel="#{autor.nome}"/>
+  </h:selectOneMenu><br/>
+  Editora:<h:selectOneMenu value="#{livroDigitalBean.livro.editora}">
+  <f:selectItem itemLabel="-- Selecione --"
+  noSelectionOption="true"/>
+  <f:selectItems value="#{editoraBean.editoras}" var="editora"
+  itemValue="#{editora}" itemLabel="#{editora.nome}"/>
+  </h:selectOneMenu><br/>
+  Descrição: <h:inputTextarea value="#{livroDigitalBean.livro.descricao}" label="Descrição" id="descricao"/> <br/>
+  Numero Paginas: <h:inputText value="#{livroDigitalBean.livro.numeroPaginas}" label="Numero Paginas" id="NumeroPaginas"/> <br/>
+  Valor: <h:inputText value="#{livroDigitalBean.livro.valor}" label="Valor" id="valor"/> <br/>
+  Isbn: <h:inputText value="#{livroDigitalBean.livro.isbn}" label="Isbn" id="isbn"/> <br/>
+  MarcaDagua: <h:inputText value="#{livroDigitalBean.livro.marcaDagua}" label="MarcaDagua" id="marcaDagua" /> <br/>
+  <h:inputHidden value="#{livroDigitalBean.livro.id}"/>
+  <h:commandButton value="salvar" action="#{livroDigitalBean.salvar()}"/>
+ 
+   </h:form>
+   </ui:define>
+   </ui:composition>
+     </h:body>
+  </html>

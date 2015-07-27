@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3c.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+  <h:body>
+   <ui:composition template="/WEB-INF/comum/template.xhtml">
+     <ui:define name="corpo">
+  <h:form id="formLivros" prependId="false" enctype="multipart/form-data">
+  <h3>Cadastro Livro Impresso </h3>
+   <h:messages /> 
+  <h:panelGrid columns="3">
+  Titulo:  <h:inputText value="#{livroImpressoBean.livro.titulo}" label="Titulo" id="titulo" /> 
+  <h:message for="titulo" />
+  Autor:<h:selectOneMenu value="#{livroImpressoBean.autor}" label="Autor" id="autor">
+  <f:selectItem itemLabel="-- Selecione --"
+  noSelectionOption="true"/>
+  <f:selectItems value="#{autorBean.autores}" var="autor"
+  itemValue="#{autor}" itemLabel="#{autor.nome}"/>
+  </h:selectOneMenu>
+  <h:message for="autor" />
+  Editora:<h:selectOneMenu value="#{livroImpressoBean.livro.editora}" label="Editora" id="editora">
+  <f:selectItem itemLabel="-- Selecione --"
+  noSelectionOption="true"/>
+  <f:selectItems value="#{editoraBean.editoras}" var="editora"
+  itemValue="#{editora}" itemLabel="#{editora.nome}"/>
+  </h:selectOneMenu>
+  <h:message for="editora" />
+  Imagem da capa:
+  <h:inputFile value="#{livroImpressoBean.imagemCapa}" label="imagemCapa" id="imagemCapa"/>
+  <h:message for="imagemCapa" /> 
+  Descrição: <h:inputTextarea value="#{livroImpressoBean.livro.descricao}" label="Descrição" id="descricao"/>
+  <h:message for="descricao" />
+  Numero Paginas: <h:inputText value="#{livroImpressoBean.livro.numeroPaginas}" label="NumeroPaginas" id="numeroPaginas"/> 
+  <h:message for="numeroPaginas" />
+  Valor: <h:inputText value="#{livroImpressoBean.livro.valor}" label="Valor" id="valor"/>
+  <h:message for="valor" />
+  Isbn: <h:inputText value="#{livroImpressoBean.livro.isbn}" label="Isbn" id="isbn"/> 
+  <h:message for="isbn" />
+  Qtd em Estoque: <h:inputText value="#{livroImpressoBean.livro.quantidadeEmEstoque}" label="quantidadeEmEstoque" id="quantidadeEmEstoque"/> 
+  <h:message for="quantidadeEmEstoque" />
+  Peso: <h:inputText value="#{livroImpressoBean.livro.peso}" label="Peso" id="peso"/> 
+  <h:message for="peso" />
+  Altura: <h:inputText value="#{livroImpressoBean.livro.altura}" label="Altura" id="altura"/> 
+  <h:message for="altura" />
+  Largura: <h:inputText value="#{livroImpressoBean.livro.largura}" label="Largura" id="largura"/> 
+  <h:message for="largura" />
+  <h:inputHidden value="#{livroImpressoBean.livro.id}"/>
+  <h:commandButton value="salvar" action="#{livroImpressoBean.salvar()}"/>
+   </h:panelGrid>
+   </h:form>
+    </ui:define>  
+  </ui:composition>
+  </h:body>
+  </html>
